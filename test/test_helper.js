@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 before((done) => {
-    mongoose.connect('mongodb://localhost:27017/users_test', { useNewUrlParser: true });
+    mongoose.connect('mongodb://localhost:27017/users_test', { useNewUrlParser: true, useFindAndModify: false });
     mongoose.connection
         .once('open', () => { done(); })
         .on('error', (error) => {
